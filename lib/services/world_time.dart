@@ -11,7 +11,7 @@ class WorldTime
   bool isDaytime;
 
 //  Constructor
-  WorldTime({this.location,this.flag,this.url});
+  WorldTime({this.location,this.url});
 
 
 //get data from external API
@@ -31,7 +31,7 @@ class WorldTime
       now = now.add(Duration(hours: int.parse(offset)));
 
     //isDaytime is true for daytime and false for nighttime
-    isDaytime = now.hour > 6 && now.hour < 19 ? true : false;
+    isDaytime = now.hour > 6 && now.hour < 20 ? true : false;
 
 
     //  Change DateTime to readable format
@@ -46,6 +46,29 @@ class WorldTime
 
 
   }
+
+  //Get Country Flag
+  Future<void> getFlag() async{
+    try{
+      Response response = await get("https://restcountries.eu/rest/v2/capital/$location");
+      // print(response.body);
+      List data = jsonDecode(response.body);
+      // print(data);
+      String countryFlag = data.map((country)=>country['flag']).toString();
+
+      //get length of flag string
+      int length = countryFlag.length;
+      // clean flag api url
+      String flagURL = countryFlag.substring(1,length-1);
+      flag = flagURL;
+    }catch(e){
+      print("Something got wrong: $e");
+      flag = "Could not access Flag API";
+
+    }
+
+  }
+
 
 }
 

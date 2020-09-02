@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+
 
 
 class Home extends StatefulWidget {
@@ -15,14 +17,18 @@ class _HomeState extends State<Home> {
     data = ModalRoute.of(context).settings.arguments;
     //Set Background Image for a day or a night
     String bgImage = data['isDaytime'] ? 'day.jpg' : 'night.jpg';
+    //set title bar color
+    Color bgColor = data['isDaytime'] ? Colors.grey[300] : Colors.black87;
 
-    // Change
     return Scaffold(
 
       appBar: AppBar(
-        title:Text("World Clock"),
+        title:Text("World Clock",
+        style:TextStyle(
+          color:Colors.orange[600]
+        )),
         centerTitle: true,
-        backgroundColor: Colors.indigo[900],
+        backgroundColor: bgColor,
         elevation: 0.0,
       ),
       body:Container(
@@ -53,6 +59,12 @@ class _HomeState extends State<Home> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    SvgPicture.network(
+                      data['flag'],
+                      height: 20.0,
+                      
+                    ),
+                    SizedBox(width: 10.0),
                     Text(data['location'],
                     style: TextStyle(
                       fontSize: 30.0,color:Colors.yellow[900]
