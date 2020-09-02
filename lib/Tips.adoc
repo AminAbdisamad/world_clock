@@ -1,0 +1,38 @@
+== Tips to keep in mind
+
+[source,dart]
+----
+// Simulate Network Request
+   void getData () async{
+
+     //Simulate Network Request that gets username
+     String username = await Future.delayed(Duration(seconds:3),(){
+       return ("Aminux");
+     });
+
+   //  Simulate Network Request that gets job title of the username
+     String position = await Future.delayed(Duration(seconds: 2),(){
+       return("Software Engineer");
+     });
+
+     print("$username - $position");
+
+   }
+
+   ----
+
+== Routing
+
+[source,dart]
+----
+ initialRoute: "/loading",
+    routes: {
+      "/":(context)=>Home(),
+      "/home" : (context) => Home(),
+      "/location" : (context) => ChooseLocation(),
+      "/loading" : (context) => Loading(),
+    }
+
+    Navigator.pushNamed(context,'/home'); This stacks over the previous page
+    Navigator.pushReplacementNamed(context,'/home') This replaces the previous page
+----
