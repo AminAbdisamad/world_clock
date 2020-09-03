@@ -11,9 +11,10 @@ Check this app if you want to know the time of a specific city in the world
 
 == Screenshots
 
-image:Screenshot/DayMode.png[Day,300,500]
-image::Screenshot/NightMode.png[NightMode,300,400]
+image:Screenshot/DayMode.png[Day,300,500, role="left"]
 
-image:Screenshot/CapitalList.png[]
+image::Screenshot/NightMode.png[NightMode,300,500, role="right"]
+
+image:Screenshot/CapitalList.png[300,500, role="left"]
 
 
