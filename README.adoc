@@ -1,0 +1,18 @@
+== Simple Clock App
+
+Check this app if you want to know the time of a specific city in the world
+
+== Getting Started
+
+- Install Android Studio or any other IDE
+- Install Dart and Flutter
+- Clone this repo
+- Start development
+
+== Screenshots
+
+Image::Screenshot/DayMode.png
+Image::Screenshot/NightMode.png
+Image::Screenshot/CapitalList.png
+
+
