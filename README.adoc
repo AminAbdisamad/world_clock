@@ -13,8 +13,8 @@ Check this app if you want to know the time of a specific city in the world
 
 image:Screenshot/DayMode.png[Day,300,500, role="left"]
 
-image::Screenshot/NightMode.png[NightMode,300,500, role="right"]
+image::Screenshot/NightMode.png[NightMode,300,500, role="left"]
 
-image:Screenshot/CapitalList.png[300,500, role="left"]
+image:Screenshot/CapitalList.png[Capital, 300,500, role="left"]
 
 
