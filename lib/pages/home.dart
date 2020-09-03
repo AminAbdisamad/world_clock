@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:websafe_svg/websafe_svg.dart';
 
 
 
@@ -12,9 +12,10 @@ class _HomeState extends State<Home> {
   Map data = {};
 
 
+
   @override
   Widget build(BuildContext context) {
-    data = ModalRoute.of(context).settings.arguments;
+    data = data.isEmpty ? ModalRoute.of(context).settings.arguments : data;
     //Set Background Image for a day or a night
     String bgImage = data['isDaytime'] ? 'day.jpg' : 'night.jpg';
     //set title bar color
@@ -47,7 +48,19 @@ class _HomeState extends State<Home> {
               children:<Widget> [
 
                 FlatButton.icon(
-                    onPressed: () {Navigator.pushNamed(context, "/location");},
+                    onPressed: () async{
+                      dynamic result = await Navigator.pushNamed(context, "/location");
+
+                      setState(() {
+                        data = {
+                          "time":result["time"],
+                          "flag":result['flag'],
+                          "location":result['location'],
+                          "isDaytime":result['isDaytime']
+                        };
+                      });
+
+                      },
                     icon:Icon(
                         Icons.edit_location,
                         color:Colors.yellow[900]
@@ -60,7 +73,7 @@ class _HomeState extends State<Home> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    SvgPicture.network(
+                    WebsafeSvg.network(
                       data['flag'],
                       height: 20.0,
                       
