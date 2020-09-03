@@ -1,4 +1,6 @@
 import "package:flutter/material.dart";
+import 'package:clock_app/services/world_time.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 
 
 class ChooseLocation extends StatefulWidget {
@@ -7,7 +9,16 @@ class ChooseLocation extends StatefulWidget {
 }
 
 class _ChooseLocationState extends State<ChooseLocation> {
-   int counter = 0;
+
+
+   List<WorldTime>   locations =[
+     WorldTime(location: "Mogadishu",url: "Africa/Mogadishu"),
+     WorldTime(location:"Djibouti",url: "Africa/Djibouti"),
+     WorldTime(location: "London",url: "Europe/London"),
+     WorldTime(location: "Ankara",url: "Europe/Ankara"),
+     WorldTime(location: "Jakarta",url: "Asia/Jakarta"),
+     WorldTime(location: "Seoul", url: "Asia/Seoul")
+   ];
    
 
 
@@ -15,14 +26,13 @@ class _ChooseLocationState extends State<ChooseLocation> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    print("Run InitState function");
 
   }
 
 
   @override
   Widget build(BuildContext context) {
-    print("Run Build Function");
+
     return Scaffold(
 
       appBar: AppBar(
@@ -31,10 +41,20 @@ class _ChooseLocationState extends State<ChooseLocation> {
         backgroundColor: Colors.indigo[900],
         elevation: 0.0,
       ),
-     body: RaisedButton(
-       onPressed: ()=>setState(()=>counter+=1),
-       child: Text("You Pressed $counter Times"),
-     )
+     body: ListView.builder(
+       itemCount: locations.length,
+         itemBuilder: (context,index){
+         return Card(
+           child: ListTile(
+             onTap: (){},
+             title: Text(locations[index].location),
+             leading: CircleAvatar(
+               backgroundImage:AssetImage("assets/night.jpg")
+               ) ,
+             ),
+         );
+         }
+     ),
     );
   }
 }

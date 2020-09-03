@@ -19,6 +19,7 @@ class _HomeState extends State<Home> {
     String bgImage = data['isDaytime'] ? 'day.jpg' : 'night.jpg';
     //set title bar color
     Color bgColor = data['isDaytime'] ? Colors.grey[300] : Colors.black87;
+    // String bgColor = '#000';
 
     return Scaffold(
 
