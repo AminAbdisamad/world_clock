@@ -17,22 +17,27 @@
 
      print("$username - $position");
 
-   }
+     Navigator.pushNamed(context,'/home');
 
-   ----
+   }
+----
+
 
 == Routing
 
 [source,dart]
 ----
- initialRoute: "/loading",
-    routes: {
-      "/":(context)=>Home(),
-      "/home" : (context) => Home(),
-      "/location" : (context) => ChooseLocation(),
-      "/loading" : (context) => Loading(),
-    }
+void Tips(){
 
-    Navigator.pushNamed(context,'/home'); This stacks over the previous page
-    Navigator.pushReplacementNamed(context,'/home') This replaces the previous page
+  //initialRoute: "/loading",
+//   routes: {
+//       "/":(context)=>Home(),
+//       "/home" : (context) => Home(),
+//       "/location" : (context) => ChooseLocation(),
+//       "/loading" : (context) => Loading(),
+// }
+
+Navigator.pushNamed(context,'/home'); //This stacks over the previous page
+Navigator.pushReplacementNamed(context,'/home'); //This replaces the previous page
+}
 ----
